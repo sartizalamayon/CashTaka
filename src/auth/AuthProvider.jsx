@@ -28,7 +28,7 @@ const AuthProvider = ({ children }) => {
       date: new Date().toISOString(),
       role: data.role,
       isPending: true,
-      balance: 40,
+      balance: data.role==="agent"? 10000 : 40,
       lastLogin: "",
     };
     console.log(user)
@@ -58,19 +58,38 @@ const AuthProvider = ({ children }) => {
     });
   }
 
+  const lastLogin = useMutation({
+    mutationFn: (number)=>{
+      return axiosPublic.patch(`/user/lastlogin/${number}`)
+    }
+  })
+
   const login = async (data, navigate) => {
     setLoading(true)
     const userData = {
       user : data.info,
       pin : data.pin
     }
-    console.log(user)
     try{
       const res = await axiosPublic.post('/login', userData)
-      localStorage.setItem('token', res.data.token);
-      setUser(res.data.user)
-      toast.success('Login Successful');
-      navigate('/dashboard/')
+      const usr = res?.data?.user
+      if(!usr.isPending){
+        localStorage.setItem('token', res.data.token);
+        setUser(usr)
+        toast.success('Login Successful');
+        navigate('/dashboard/')
+        if(usr.lastLogin === ''){
+          toast.success('Welcome to CashTaka', {
+            description: `You have received a one time welcome bonus ${res.data.user.role === 'agent'? '10,000':'40'} Taka.`
+          })
+        }
+        lastLogin.mutate(usr.number)
+        
+      }else if(res.data.user.isPending){
+        toast.error('Login Failed', {
+          description: 'Your account is still pending approval. Please try again later.'
+      })
+      }
     }catch(error){
       console.log(error.response)
       toast.error('Login Failed', {

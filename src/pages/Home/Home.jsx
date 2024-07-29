@@ -3,9 +3,11 @@ import { Helmet} from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../auth/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Home = () => {
-  const [curr, setCurr] = useState("login");
+  const [curr, setCurr] = useState("login")
+  const [showPassword, setShowPassword] = useState(false);
   const {login, signup, loading} = useContext(AuthContext)
   const navigate = useNavigate()
 
@@ -24,6 +26,10 @@ const Home = () => {
       setFocus("name");
     }
   }, [setFocus, curr]);
+
+  useEffect(()=>{
+    setShowPassword(false)
+  },[curr])
 
   const onLogin = (data) => {
     login(data, navigate)
@@ -78,7 +84,7 @@ const Home = () => {
               />
               {errors.info && <p className="mt-1 text-red-500">{errors.info.message}</p>}
             </div>
-            <div>
+            <div className="relative">
               <input
                 placeholder="Pin"
                 {...register("pin", {
@@ -96,9 +102,16 @@ const Home = () => {
                     message: "PIN must be a 5-digit number",
                   },
                 })}
+                type={showPassword ? "text" : "password"}
                 className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               {errors?.pin && <p className="mt-1 text-red-500">{errors?.pin?.message}</p>}
+              <span
+                  className="absolute right-3 top-3 cursor-pointer text-red-300"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? <FaEye /> : <FaEyeSlash />}
+              </span>
             </div>
             <div>
               <button
@@ -151,7 +164,7 @@ const Home = () => {
               />
               {errors?.number && <p className="mt-1 text-red-500">{errors?.number?.message}</p>}
             </div>
-            <div>
+            <div className="relative">
               <input
                 placeholder="5 Digit Pin"
                 {...register("newPin", {
@@ -169,9 +182,16 @@ const Home = () => {
                     message: "PIN must be a 5-digit number",
                   },
                 })}
+                type={showPassword ? "text" : "password"}
                 className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               {errors?.newPin && <p className="mt-1 text-red-500">{errors?.newPin?.message}</p>}
+              <span
+                  className="absolute right-3 top-3 cursor-pointer text-red-300"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? <FaEye /> : <FaEyeSlash />}
+              </span>
             </div>
             <div>
               <div className="flex items-center space-x-4">
