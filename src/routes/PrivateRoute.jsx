@@ -1,20 +1,16 @@
-import { Navigate, useLocation } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import PropTypes from 'prop-types';
+import { useContext } from "react";
+import { AuthContext } from "../auth/AuthProvider";
 
 const PrivateRoute = ({children}) => {
-    const user = true;
-    const loading = false;
+    const {user} = useContext(AuthContext);
 
-    
-    const location = useLocation();
-
-    if(loading){
-        return <p>Loading...</p>
-    }
     if (user){
         return children;
     } 
-    return <Navigate to="/" state={{from:location}} replace/>
+    
+    return <Navigate to="/"/>
 };
 
 export default PrivateRoute;
