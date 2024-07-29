@@ -1,9 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Helmet} from "react-helmet-async";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../../auth/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [curr, setCurr] = useState("login");
+  const {login, signup, loading} = useContext(AuthContext)
+  const navigate = useNavigate()
 
   const {
     register,
@@ -22,14 +26,12 @@ const Home = () => {
   }, [setFocus, curr]);
 
   const onLogin = (data) => {
-    console.log(data)
-    reset()
+    login(data, navigate)
     };
 
   const onSignup = (data) => {
-    console.log(data)
-    reset()
-    };
+    signup(data, reset, setCurr);
+  };
 
   return (
     <>
@@ -99,10 +101,12 @@ const Home = () => {
               {errors?.pin && <p className="mt-1 text-red-500">{errors?.pin?.message}</p>}
             </div>
             <div>
-              <input
+              <button
                 type="submit"
                 className="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 transition-all duration-300"
-              />
+              >
+                {loading?<span className="loading loading-dots loading-md"></span>: 'Login'}
+              </button>
             </div>
           </form>
         )}
@@ -149,7 +153,7 @@ const Home = () => {
             </div>
             <div>
               <input
-                placeholder="Pin"
+                placeholder="5 Digit Pin"
                 {...register("newPin", {
                   required: "PIN is required",
                   minLength: {
@@ -193,10 +197,12 @@ const Home = () => {
               {errors?.role && <p className="mt-1 text-red-500">{errors?.role?.message}</p>}
             </div>
             <div>
-              <input
+              <button
                 type="submit"
-                className="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 transition-all duration-300"
-              />
+                className="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 transition-all duration-300 flex justify-center items-center"
+              >
+                {loading?<span className="loading loading-dots loading-md"></span>: 'Sign Up'}
+              </button>
             </div>
           </form>
         )}

@@ -17,10 +17,6 @@ export const router = createBrowserRouter([{
             element: <p>Dashboard</p>,
             children: [
                 {
-                    path: "/dashboard/",
-                    element: <p>Dashboard Home</p>,
-                },
-                {
                     path: "/dashboard/send",
                     element: <p>Dashboard Send</p>,
                 },
