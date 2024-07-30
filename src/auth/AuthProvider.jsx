@@ -1,22 +1,39 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 import { useMutation } from "@tanstack/react-query";
 import { toast } from 'sonner';
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   const newUser = useMutation({
     mutationFn: (user) => {
       return axiosPublic.post('/users', user)
     }
   })
+  console.log(loading)
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const res = await axiosSecure.get('/user');
+        setUser(res.data.user);
+      } catch (error) {
+        //console.error(error);
+      } finally{
+        setLoading(false)
+      }
+    };
+    fetchUser();
+  }, [axiosSecure, user]);
 
   const signup = async (data, reset, setCurr) => {
     setLoading(true);
@@ -28,7 +45,7 @@ const AuthProvider = ({ children }) => {
       date: new Date().toISOString(),
       role: data.role,
       isPending: true,
-      balance: data.role==="agent"? 10000 : 40,
+      balance: data.role==="agent"? 10000.00 : 40.00,
       lastLogin: "",
     };
     console.log(user)
