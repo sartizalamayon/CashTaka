@@ -3,6 +3,16 @@ import Root from "../layout/Root";
 import Home from "../pages/Home/Home";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
+import SendMoney from "../pages/SendMoney";
+import CashOut from "../pages/CashOut"
+import CashIn from "../pages/CashIn"
+import RecentTransaction from "../pages/RecentTransaction"
+import CashOutReq from "../pages/CashOutReq"
+import CashInReq from "../pages/CashInReq"
+import ManageUsers from "../pages/ManageUsers"
+import ManageAgents from "../pages/ManageAgents"
+import AllTransactions from "../pages/AllTransactions"
+
 
 export const router = createBrowserRouter([
   {
@@ -24,39 +34,39 @@ export const router = createBrowserRouter([
         children: [
           {
             path: "send-money",
-            element: <p>Send Money</p>,
+            element: <SendMoney/>,
           },
           {
             path: "cash-out",
-            element: <p>Cashout</p>,
+            element: <CashOut/>,
           },
           {
             path: "cash-in",
-            element: <p>Cashin</p>,
+            element: <CashIn/>,
           },
           {
             path: "recent-transactions",
-            element: <p>recent-transactions</p>,
+            element: <RecentTransaction/>,
           },
           {
             path: "cash-out-requests",
-            element: <p>Cash out req</p>,
+            element: <CashOutReq/>,
           },
           {
             path: "cash-in-requests",
-            element: <p>Cash out req</p>,
+            element: <CashInReq/>,
           },
           {
             path: "manage-users",
-            element: <p>manage-users</p>,
+            element: <ManageUsers/>,
           },
           {
             path: "manage-agents",
-            element: <p>manage-agent</p>,
+            element: <ManageAgents/>,
           },
           {
             path: "all-transactions",
-            element: <p>all trans</p>,
+            element: <AllTransactions/>,
           },
         ],
       },

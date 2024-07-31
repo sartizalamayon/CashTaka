@@ -96,7 +96,7 @@ const Home = () => {
                     })}
                     placeholder="Email/Number"
                     type="text"
-                    className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary bg-white"
                   />
                   {errors.info && (
                     <p className="mt-1 text-red-500">{errors.info.message}</p>
@@ -121,7 +121,7 @@ const Home = () => {
                       },
                     })}
                     type={showPassword ? "text" : "password"}
-                    className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary bg-white"
                   />
                   {errors?.pin && (
                     <p className="mt-1 text-red-500">{errors?.pin?.message}</p>
@@ -155,7 +155,7 @@ const Home = () => {
                     {...register("name", { required: "Name is required" })}
                     placeholder="Name"
                     type="text"
-                    className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary bg-white"
                   />
                   {errors?.name && (
                     <p className="mt-1 text-red-500">{errors?.name?.message}</p>
@@ -173,7 +173,7 @@ const Home = () => {
                     })}
                     placeholder="Email"
                     type="email"
-                    className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary bg-white"
                   />
                   {errors?.email && (
                     <p className="mt-1 text-red-500">
@@ -192,7 +192,7 @@ const Home = () => {
                       },
                     })}
                     placeholder="Phone Number"
-                    className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary bg-white"
                   />
                   {errors?.number && (
                     <p className="mt-1 text-red-500">
@@ -219,7 +219,7 @@ const Home = () => {
                       },
                     })}
                     type={showPassword ? "text" : "password"}
-                    className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary bg-white"
                   />
                   {errors?.newPin && (
                     <p className="mt-1 text-red-500">
@@ -262,7 +262,7 @@ const Home = () => {
                 <div>
                   <button
                     type="submit"
-                    className="w-full px-4 py-2 font-bold text-white bg-primary rounded hover:hover:shadow-xl transition-all duration-300 flex justify-center items-center"
+                    className="w-full px-4 py-2 font-bold text-white bg-primary rounded hover:hover:shadow-xl transition-all duration-300 flex justify-center items-center "
                   >
                     {loading ? (
                       <span className="loading loading-dots loading-md"></span>

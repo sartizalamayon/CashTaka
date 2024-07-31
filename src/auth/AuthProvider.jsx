@@ -19,7 +19,6 @@ const AuthProvider = ({ children }) => {
       return axiosPublic.post('/users', user)
     }
   })
-  console.log(loading)
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -45,7 +44,7 @@ const AuthProvider = ({ children }) => {
       date: new Date().toISOString(),
       role: data.role,
       isPending: true,
-      balance: data.role==="agent"? 10000.00 : 40.00,
+      balance: data.role==="agent"? 10000 : 40,
       lastLogin: "",
     };
     console.log(user)
