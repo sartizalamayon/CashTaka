@@ -40,7 +40,6 @@ const RecentTransaction = () => {
     };
 
     const getNumber = (transaction)=>{
-        console.log(transaction)
         if(transaction.senderName !== user?.name){
             return `${transaction.sender} (${transaction.senderName})`
         }

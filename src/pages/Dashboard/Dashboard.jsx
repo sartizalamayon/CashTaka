@@ -91,7 +91,7 @@ const Dashboard = () => {
           )}
 
           {user.role === 'agent' && (
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
               <NavLink to="/dashboard/cash-in-requests" className={({ isActive }) =>
                 isActive
                   ? "bg-green-200 p-4 md:p-6 rounded-lg shadow-md flex items-center justify-center flex-col border-b-primary border-b-4 rounded-b-none"
@@ -108,7 +108,15 @@ const Dashboard = () => {
                 <TbListDetails className="text-3xl md:text-4xl text-green-500 mb-2" />
                 <div className="text-sm md:text-lg font-semibold text-green-700 text-center">Recent Transactions</div>
               </NavLink>
-              <NavLink to="/dashboard/cash-out-requests" className={({ isActive }) =>
+              <NavLink to="/dashboard/topup" className={({ isActive }) =>
+                isActive
+                  ? "bg-green-200 p-4 md:p-6 rounded-lg shadow-md flex items-center justify-center flex-col border-b-primary border-b-4 rounded-b-none"
+                  : "bg-green-100 hover:bg-green-200 p-4 md:p-6 rounded-lg shadow-md flex items-center justify-center flex-col"
+                }>
+                <TbCash className="text-3xl md:text-4xl text-green-500 mb-2" />
+                <div className="text-sm md:text-lg font-semibold text-green-700 text-center">Top Up</div>
+              </NavLink>
+              <NavLink to="/dashboard/withdraw" className={({ isActive }) =>
                 isActive
                   ? "bg-green-200 p-4 md:p-6 rounded-lg shadow-md flex items-center justify-center flex-col border-b-primary border-b-4 rounded-b-none"
                   : "bg-green-100 hover:bg-green-200 p-4 md:p-6 rounded-lg shadow-md flex items-center justify-center flex-col"

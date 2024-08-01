@@ -7,11 +7,12 @@ import SendMoney from "../pages/SendMoney";
 import CashOut from "../pages/CashOut"
 import CashIn from "../pages/CashIn"
 import RecentTransaction from "../pages/RecentTransaction"
-import CashOutReq from "../pages/CashOutReq"
 import CashInReq from "../pages/CashInReq"
 import ManageUsers from "../pages/ManageUsers"
 import ManageAgents from "../pages/ManageAgents"
 import AllTransactions from "../pages/AllTransactions"
+import Withdraw from "../pages/Withdraw";
+import Topup from "../pages/Topup";
 
 
 export const router = createBrowserRouter([
@@ -49,8 +50,12 @@ export const router = createBrowserRouter([
             element: <RecentTransaction/>,
           },
           {
-            path: "cash-out-requests",
-            element: <CashOutReq/>,
+            path: "topup",
+            element: <Topup/>,
+          },
+          {
+            path: "withdraw",
+            element: <Withdraw/>,
           },
           {
             path: "cash-in-requests",
