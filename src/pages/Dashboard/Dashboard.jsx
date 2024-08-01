@@ -14,7 +14,7 @@ const Dashboard = () => {
   return (
     <div className="w-full min-h-screen bg-white">
       <Helmet>
-        <title>CashTaks - Dashboard</title>
+        <title>CashTaka - Dashboard</title>
       </Helmet>
       <div>
         {/* Navbar */}

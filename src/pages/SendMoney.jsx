@@ -88,10 +88,10 @@ const SendMoney = () => {
       sender: user.number,
       receiver: data.info,
       amount: parseInt(data.amount),
+      fee: data.amount > 100 ? 5: 0,
       pin: data.pin,
       date: new Date().toISOString(),
     };
-    console.log(data);
     Swal.fire({
       icon: "question",
       html: `
@@ -121,7 +121,7 @@ const SendMoney = () => {
               setLoading(false);
               if (data.data.success) {
                 toast.success("Money Sent Successfully", {
-                  description: `You have sent ${transaction.amount}tk to ${data.info}`,
+                  description: `You have sent ${transaction.amount}tk to ${transaction.receiver}`,
                 });
                 refetch();
                 reset();
@@ -135,7 +135,7 @@ const SendMoney = () => {
             onError: (error) => {
               setLoading(false);
               toast.error("Error Sending Money", {
-                description: `${error.message}. Please try again later`,
+                description: `${error?.response?.data?.message || error?.message}. Please try again`,
               });
             },
           });
