@@ -60,7 +60,7 @@ const Withdraw = () => {
       sender: user?.number,
       receiver: "admin@cashtaka.com",
       amount: amount,
-      fee: 0,
+      fee: fee,
       pin: pin,
       date: new Date().toISOString(),
     };

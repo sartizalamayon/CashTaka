@@ -14,6 +14,7 @@ import AllTransactions from "../pages/AllTransactions"
 import Withdraw from "../pages/Withdraw";
 import Topup from "../pages/Topup";
 import Profile from "../pages/Profile";
+import TopupReq from "../pages/TopupReq";
 
 
 export const router = createBrowserRouter([
@@ -79,12 +80,8 @@ export const router = createBrowserRouter([
             element: <AllTransactions/>,
           },
           {
-            path: "agent-withdraws",
-            element: <p>Agent Withdraws</p>,
-          },
-          {
             path: "topup-requests",
-            element: <p>Agent Withdraws</p>,
+            element: <TopupReq/>
           },
         ],
       },

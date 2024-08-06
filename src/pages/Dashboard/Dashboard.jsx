@@ -30,7 +30,7 @@ const Dashboard = () => {
               </button></Link>
             </div>
             <div className="flex-none">
-              {user.role !== 'admin' && (
+              {user && (
                 <div className=" bg-white rounded-xl mr-4 h-7 md:h-9 flex justify-between items-center px-2 gap-1 min-w-20 md:min-w-24">
                 <div className="h-full flex justify-center items-center flex-1 text-black text-opacity-70 font-medium">
                   {balance.balance}
@@ -129,7 +129,7 @@ const Dashboard = () => {
           )}
 
           {user.role === 'admin' && (
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
               <NavLink to="/dashboard/manage-users" className={({ isActive }) =>
                 isActive
                   ? "bg-green-200 p-4 md:p-6 rounded-lg shadow-md flex items-center justify-center flex-col border-b-primary border-b-4 rounded-b-none"
@@ -145,6 +145,14 @@ const Dashboard = () => {
                 }>
                 <FaUsers className="text-3xl md:text-4xl text-green-500 mb-2" />
                 <div className="text-sm md:text-lg font-semibold text-green-700 text-center">Manage Agents</div>
+              </NavLink>
+              <NavLink to="/dashboard/topup-requests" className={({ isActive }) =>
+                isActive
+                  ? "bg-green-200 p-4 md:p-6 rounded-lg shadow-md flex items-center justify-center flex-col border-b-primary border-b-4 rounded-b-none"
+                  : "bg-green-100 hover:bg-green-200 p-4 md:p-6 rounded-lg shadow-md flex items-center justify-center flex-col"
+                }>
+                <TbListDetails className="text-3xl md:text-4xl text-green-500 mb-2" />
+                <div className="text-sm md:text-lg font-semibold text-green-700 text-center">Topup Requests</div>
               </NavLink>
               <NavLink to="/dashboard/all-transactions" className={({ isActive }) =>
                 isActive
