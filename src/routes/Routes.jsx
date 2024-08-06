@@ -13,6 +13,7 @@ import ManageAgents from "../pages/ManageAgents"
 import AllTransactions from "../pages/AllTransactions"
 import Withdraw from "../pages/Withdraw";
 import Topup from "../pages/Topup";
+import Profile from "../pages/Profile";
 
 
 export const router = createBrowserRouter([
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         children: [
+          {
+            path: "/dashboard",
+            element: <Profile/>,
+          },
           {
             path: "send-money",
             element: <SendMoney/>,
@@ -72,6 +77,14 @@ export const router = createBrowserRouter([
           {
             path: "all-transactions",
             element: <AllTransactions/>,
+          },
+          {
+            path: "agent-withdraws",
+            element: <p>Agent Withdraws</p>,
+          },
+          {
+            path: "topup-requests",
+            element: <p>Agent Withdraws</p>,
           },
         ],
       },

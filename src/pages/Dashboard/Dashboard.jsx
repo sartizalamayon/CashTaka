@@ -114,7 +114,7 @@ const Dashboard = () => {
                   : "bg-green-100 hover:bg-green-200 p-4 md:p-6 rounded-lg shadow-md flex items-center justify-center flex-col"
                 }>
                 <TbCash className="text-3xl md:text-4xl text-green-500 mb-2" />
-                <div className="text-sm md:text-lg font-semibold text-green-700 text-center">Top Up</div>
+                <div className="text-sm md:text-lg font-semibold text-green-700 text-center">Request Top Up</div>
               </NavLink>
               <NavLink to="/dashboard/withdraw" className={({ isActive }) =>
                 isActive

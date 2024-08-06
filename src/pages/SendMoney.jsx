@@ -150,6 +150,7 @@ const SendMoney = () => {
       <div className="w-full max-w-md items-center space-y-6 bg-white shadow-md rounded-lg overflow-hidden">
         <div className="flex flex-col items-center justify-center bg-primary w-full h-24 rounded-t-lg p-4 text-white">
           <h1 className="text-2xl font-bold">Send Money</h1>
+          <p className="w-full italic text-xs text-center mt-1 text-gray-300">*5 Tk Charge applied over 100 tk</p>
         </div>
         <form
           onSubmit={handleSubmit(handleSendMoney)}
@@ -235,8 +236,10 @@ const SendMoney = () => {
                 "Send"
               )}
             </button>
+            
           </div>
         </form>
+        
       </div>
     </div>
   );

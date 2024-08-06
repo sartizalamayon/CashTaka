@@ -81,7 +81,7 @@ const CashOut = () => {
       senderName: user?.name,
       sender: user.number,
       receiver: data.agentInfo,
-      amount: totalDeduction,
+      amount: amount,
       fee: fee,
       pin: data.pin,
       date: new Date().toISOString(),
