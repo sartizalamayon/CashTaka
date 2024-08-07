@@ -5,7 +5,7 @@ const TopupReq = () => {
     
     return (
         <div>
-            Topup reqs
+            Topup
         </div>
     );
 };
