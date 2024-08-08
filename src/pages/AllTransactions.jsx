@@ -37,7 +37,11 @@ const AllTransactions = () => {
     }, [allTransactions]);
 
     if (isLoading) {
-        return <p>Loading...</p>;
+        return (
+            <div className="flex justify-center items-center">
+                <span className="loading loading-infinity loading-lg text-primary"></span>
+            </div>
+        );
     }
 
     return (

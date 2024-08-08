@@ -15,6 +15,9 @@ import Withdraw from "../pages/Withdraw";
 import Topup from "../pages/Topup";
 import Profile from "../pages/Profile";
 import TopupReq from "../pages/TopupReq";
+import AdminRoute from "./AdminRoute";
+import AgentRoute from "./AgentRoute";
+import UserRoute from "./UserRoute";
 
 
 export const router = createBrowserRouter([
@@ -41,15 +44,15 @@ export const router = createBrowserRouter([
           },
           {
             path: "send-money",
-            element: <SendMoney/>,
+            element: <UserRoute><SendMoney/></UserRoute>,
           },
           {
             path: "cash-out",
-            element: <CashOut/>,
+            element: <UserRoute><CashOut/></UserRoute>,
           },
           {
             path: "cash-in",
-            element: <CashIn/>,
+            element: <UserRoute><CashIn/></UserRoute>,
           },
           {
             path: "recent-transactions",
@@ -57,31 +60,31 @@ export const router = createBrowserRouter([
           },
           {
             path: "topup",
-            element: <Topup/>,
+            element: <AgentRoute><Topup/></AgentRoute>,
           },
           {
             path: "withdraw",
-            element: <Withdraw/>,
+            element: <AgentRoute><Withdraw/></AgentRoute>,
           },
           {
             path: "cash-in-requests",
-            element: <CashInReq/>,
+            element: <AgentRoute><CashInReq/></AgentRoute>,
           },
           {
             path: "manage-users",
-            element: <ManageUsers/>,
+            element: <AdminRoute><ManageUsers/></AdminRoute>,
           },
           {
             path: "manage-agents",
-            element: <ManageAgents/>,
+            element: <AdminRoute><ManageAgents/></AdminRoute>,
           },
           {
             path: "all-transactions",
-            element: <AllTransactions/>,
+            element: <AdminRoute><AllTransactions/></AdminRoute>,
           },
           {
             path: "topup-requests",
-            element: <TopupReq/>
+            element: <AdminRoute><TopupReq/></AdminRoute>,
           },
         ],
       },

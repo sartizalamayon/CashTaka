@@ -1,6 +1,6 @@
 import axios from "axios";
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:3001',
+    baseURL: 'https://cash-taka-server.vercel.app',
     withCredentials: true
 });
 
