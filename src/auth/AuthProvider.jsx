@@ -47,7 +47,6 @@ const AuthProvider = ({ children }) => {
       balance: data.role==="agent"? 10000 : 40,
       lastLogin: "",
     };
-    console.log(user)
     newUser.mutate(user, {
       onSuccess: (data) => {
         setLoading(false);
@@ -103,7 +102,7 @@ const AuthProvider = ({ children }) => {
         
       }else if(res.data.user.isPending){
         toast.error('Login Failed', {
-          description: 'Your account is still pending approval. Please try again later.'
+          description: 'Your account is pending approval or might be disabled. Please Contact admin for approval.'
       })
       }
     }catch(error){
